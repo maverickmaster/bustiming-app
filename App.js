@@ -12,7 +12,11 @@ export default function App() {
   return (
     <NavigationContainer>
       <Stack.Navigator>
-        <Stack.Screen component={SearchScreen} name="Search" />
+        <Stack.Screen
+          component={SearchScreen}
+          name="Search"
+          options={{ headerShown: false }}
+        />
         <Stack.Screen component={ResultScreen} name="Result" />
       </Stack.Navigator>
     </NavigationContainer>

@@ -15,19 +15,39 @@ export default function SearchScreen({ navigation }) {
   const [bus, setBus] = useState("");
 
   return (
-    <View style={[styles.container, { backgroundColor: "white" }]}>
+    <View style={[styles.container, { backgroundColor: "skyblue" }]}>
+      <Text
+        style={{
+          fontSize: 38,
+          alignItems: "center",
+          color: "purple",
+          marginBottom: 10,
+        }}
+      >
+        SBS Transit
+      </Text>
+      <Text
+        style={{
+          fontSize: 38,
+          alignItems: "center",
+          color: "brown",
+          marginBottom: 50,
+        }}
+      >
+        Bus Timing App
+      </Text>
       <Text style={{ fontSize: 24 }}>BusStop Number</Text>
       <TextInput
         style={styles.textInput}
         value={text}
-        onChangeText={(input) => setText(input)}
+        onChangeText={(text) => setText(text)}
         placeholder={"Enter Bus Stop "}
       />
       <Text style={{ fontSize: 24 }}>Bus Number</Text>
       <TextInput
         style={styles.textInput}
         value={bus}
-        onChangeText={(input) => setBus(input)}
+        onChangeText={(bus) => setBus(bus)}
         placeholder={"Enter Bus Number"}
       />
 
@@ -38,6 +58,7 @@ export default function SearchScreen({ navigation }) {
         >
           <Text style={styles.buttonText}>Save</Text>
         </TouchableOpacity>
+
         <TouchableOpacity
           style={styles.buttond}
           onPress={() => navigation.navigate("Search", {})}
@@ -53,6 +74,8 @@ export default function SearchScreen({ navigation }) {
     </View>
   );
 }
+
+//export default Search;
 
 const styles = StyleSheet.create({
   container: {
