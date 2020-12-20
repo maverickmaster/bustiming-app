@@ -8,17 +8,16 @@ import {
   View,
 } from "react-native";
 
-const Result = ({ route }) => {
+const BUSSTOP_NUMBER = ({ route }) => {
   return (
-    <View style={styles.container}>
-      <Text style={styles.textStyle}>
-        Values passed from First page: {route.params.text}
-      </Text>
-    </View>
+    <view>
+      <Text>{route.params.paramKey}</Text>
+    </view>
   );
 };
 
-const BUSSTOP_NUMBER = "93069";
+//const BUSSTOP_NUMBER = "93069";
+
 const BUS_NUMBER = "14";
 const BUSSTOP_URL = "https://arrivelah2.busrouter.sg/?id=" + BUSSTOP_NUMBER;
 const LOADING_INTERVAL = 60000;

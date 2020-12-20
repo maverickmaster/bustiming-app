@@ -10,7 +10,7 @@ import {
   Keyboard,
 } from "react-native";
 
-export default function SearchScreen({ navigation }) {
+export default function Search({ navigation }) {
   const [text, setText] = useState("");
   const [bus, setBus] = useState("");
 
@@ -54,7 +54,7 @@ export default function SearchScreen({ navigation }) {
       <View style={styles.buttonContainer}>
         <TouchableOpacity
           style={styles.button}
-          onPress={() => navigation.navigate("Result", { text })}
+          onPress={() => navigation.navigate("Result", { paramKey: text })}
         >
           <Text style={styles.buttonText}>Save</Text>
         </TouchableOpacity>
