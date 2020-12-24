@@ -43,18 +43,19 @@ export default function Search({ navigation }) {
         onChangeText={(text) => setText(text)}
         placeholder={"Enter Bus Stop "}
       />
+
       <Text style={{ fontSize: 24 }}>Bus Number</Text>
       <TextInput
         style={styles.textInput}
         value={bus}
         onChangeText={(bus) => setBus(bus)}
-        placeholder={"Enter Bus Number"}
+        placeholder={"Enter Bus number"}
       />
 
       <View style={styles.buttonContainer}>
         <TouchableOpacity
           style={styles.button}
-          onPress={() => navigation.navigate("Result", { paramKey: text })}
+          onPress={() => navigation.navigate("Result", { text, bus })}
         >
           <Text style={styles.buttonText}>Save</Text>
         </TouchableOpacity>

@@ -1,4 +1,3 @@
-import { setStatusBarNetworkActivityIndicatorVisible } from "expo-status-bar";
 import React, { useEffect, useState } from "react";
 import {
   ActivityIndicator,
@@ -8,23 +7,16 @@ import {
   View,
 } from "react-native";
 
-const BUSSTOP_NUMBER = ({ route }) => {
-  return (
-    <view>
-      <Text>{route.params.paramKey}</Text>
-    </view>
-  );
-};
-
 //const BUSSTOP_NUMBER = "93069";
 
-const BUS_NUMBER = "14";
-const BUSSTOP_URL = "https://arrivelah2.busrouter.sg/?id=" + BUSSTOP_NUMBER;
-const LOADING_INTERVAL = 60000;
+//const BUS_NUMBER = "14";
 
-export default function ResultScreen({ navigation }) {
+export default function ResultScreen({ route, navigation }) {
   const [loading, setLoading] = useState(true);
   const [arrival, setArrival] = useState("");
+  const BUSSTOP_URL =
+    "https://arrivelah2.busrouter.sg/?id=" + route.params.text;
+  const LOADING_INTERVAL = 60000;
 
   function loadBusStopData() {
     //Turn on the loading indictor each time
@@ -36,7 +28,7 @@ export default function ResultScreen({ navigation }) {
         //console.log(responseData)
 
         const myBus = responseData.services.filter(
-          (item) => item.no === BUS_NUMBER
+          (item) => item.no === route.params.bus
         )[0];
         //console.log("My bus:");
         console.log(myBus);
@@ -63,9 +55,9 @@ export default function ResultScreen({ navigation }) {
 
   return (
     <View style={styles.container}>
-      <Text style={styles.input}>Bus: {BUS_NUMBER}</Text>
+      <Text style={styles.input}>Bus: {route.params.bus}</Text>
       <Text style={styles.title}>BusStop:</Text>
-      <Text style={styles.input}>{BUSSTOP_NUMBER}</Text>
+      <Text style={styles.input}>{route.params.text}</Text>
       <Text style={styles.title}>arrival time</Text>
       <Text style={styles.arrivalTime}>
         {loading ? <ActivityIndicator size="large" color="red" /> : arrival}
